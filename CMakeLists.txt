@@ -97,9 +97,6 @@ if(NOT DEFINED CMAKE_BUILD_TYPE
   message(STATUS "'Release' build type is used by default. Use CMAKE_BUILD_TYPE to specify build type (Release or Debug)")
   set(CMAKE_BUILD_TYPE "Release" CACHE STRING "Choose the type of build")
 endif()
-if(DEFINED CMAKE_BUILD_TYPE)
-  set_property(CACHE CMAKE_BUILD_TYPE PROPERTY STRINGS "${CMAKE_CONFIGURATION_TYPES}")
-endif()
 
 option(ENABLE_PIC "Generate position independent code (necessary for shared libraries)" TRUE)
 set(CMAKE_POSITION_INDEPENDENT_CODE ${ENABLE_PIC})
