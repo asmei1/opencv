@@ -43,10 +43,10 @@ if(WITH_JPEG)
     ocv_clear_vars(JPEG_FOUND)
   else()
     ocv_clear_internal_cache_vars(JPEG_LIBRARY JPEG_INCLUDE_DIR)
-    find_package(libjpeg-turbo REQUIRED)
+    include(FindJPEG)
   endif()
 
-  if(NOT libjpeg-turbo_FOUND)
+  if(NOT JPEG_FOUND)
     ocv_clear_vars(JPEG_LIBRARY JPEG_INCLUDE_DIR)
 
     if(NOT BUILD_JPEG_TURBO_DISABLE)
