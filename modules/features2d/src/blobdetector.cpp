@@ -331,13 +331,14 @@ void SimpleBlobDetectorImpl::detect(InputArray image, std::vector<cv::KeyPoint>&
             CV_LOG_WARNING(NULL, "SimpleBlobDetector: params.minRepeatability=" << params.minRepeatability << " is incompatible for case with single threshold. Empty result is expected.");
 #endif
     }
-        if(params.maxThreshold - params.minThreshold <= params.thresholdStep) {
+
+    std::vector < std::vector<Center> > centers;
+            if(params.maxThreshold - params.minThreshold <= params.thresholdStep) {
             // if the difference between min and max threshold is less than the threshold step
             // we're only going to enter the loop once, so we need to add curCenters
             // to ensure we still use minDistBetweenBlobs
             centers.push_back(curCenters);
         }
-    std::vector < std::vector<Center> > centers;
     for (double thresh = params.minThreshold; thresh < params.maxThreshold; thresh += params.thresholdStep)
     {
         Mat binarizedImage;
